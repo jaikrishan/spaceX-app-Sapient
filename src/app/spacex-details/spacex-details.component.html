@@ -1,0 +1,50 @@
+<div class="jumbotron">
+    <div class="row">
+        <div class="side">
+          <h2>Filter</h2>
+          <h5>Launch Year:</h5>
+          <div class="form-group">
+            <label for="sel1">Select list:</label>
+            <select class="form-control" id="sel1" [(ngModel)]="spaceYear" (ngModelChange)="filterSpaceLaunch()">
+                <option [ngValue]="null"></option>
+              <option *ngFor="let year of spacelaunchYear" [ngValue]="year">{{year}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="sel1">Successful Launch:</label>
+            <select class="form-control" id="sel1" [(ngModel)]="spaceLaunch" (ngModelChange)="filterSpaceLaunch()">
+                <option [ngValue]="null"></option>
+                <option *ngFor="let launch of spaceLaunchCheck" [ngValue]="launch">{{launch}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="sel1">Successful Landing:</label>
+            <select class="form-control" id="sel1" [(ngModel)]="spaceLanding" (ngModelChange)="filterSpaceLaunch()">
+                <option [ngValue]="null"></option>
+                <option *ngFor="let landing of spaceLandingCheck" [ngValue]="landing">{{landing}}</option>
+            </select>
+          </div>
+          
+        </div>
+        <div class="main">
+          <h2>Filtered Results</h2>
+          <div class="flex-container" >
+            <div class="flex-item-left" *ngFor="let spacex of spaceResults[0]">
+                <h6>{{spacex.mission_name}}</h6>
+                <h6>Mission Ids</h6>
+                <ul>
+                    <li>Mission ids</li>
+                </ul>
+                <h6>Launch Year</h6>: <b>{{spacex.launch_year}}</b>
+                <h6>Successful launch</h6>: <b>{{spacex.launch_success}}</b>
+                <h6>Successful landing</h6>: <b>True</b>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Footer -->
+      <div class="footer">
+        <h2>Developed By Jai Krishan</h2>
+      </div>
+    </div>
